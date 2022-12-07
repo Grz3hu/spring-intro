@@ -1,10 +1,14 @@
 package com.example;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-@Component("RandomMessageService")
+@Configuration
+@Scope("prototype")
 public class RandomTextMessageService implements MessageService {
     String[] messages = new String[] {
             "Zainstaluj środowisko IntelliJ IDEA",
@@ -18,7 +22,7 @@ public class RandomTextMessageService implements MessageService {
             "Podpowiedzi jak to zrobić można znaleźć tutaj",
             "upewnij się że Twoje imię i nazwisko jest wyświetlane na ekranie" };
 
-    @Override
+    @Bean
     public String getMessage() {
         Random rand = new Random();
         int randomNum = rand.nextInt(10);
