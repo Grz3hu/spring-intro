@@ -1,7 +1,10 @@
 package com.example;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Random;
 
+@Component("RandomMessageService")
 public class RandomTextMessageService implements MessageService {
     String[] messages = new String[] {
             "Zainstaluj środowisko IntelliJ IDEA",
